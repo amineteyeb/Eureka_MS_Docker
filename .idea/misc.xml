@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/Gestion-Communication" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/EurekaServer/pom.xml" />
+        <option value="$PROJECT_DIR$/clientTest/pom.xml" />
+        <option value="$PROJECT_DIR$/Gestion-Cours/pom.xml" />
+        <option value="$PROJECT_DIR$/Gestion-Coordination/pom.xml" />
+        <option value="$PROJECT_DIR$/Gestion-User/pom.xml" />
+        <option value="$PROJECT_DIR$/Gestion-Communication/pom.xml" />
+        <option value="$PROJECT_DIR$/Api-Gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/Gestion-Classes/pom.xml" />
+        <option value="$PROJECT_DIR$/Gestion-evenements/pom.xml" />
+        <option value="$PROJECT_DIR$/ConfigServer/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/Eureka-Server/pom.xml" />
+        <option value="$PROJECT_DIR$/Gestion-User/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="corretto-18" project-jdk-type="JavaSDK" />
+</project>

@@ -1,0 +1,120 @@
+---
+version: '3.9'
+services:
+  ## MySQL Docker Compose Config
+
+
+  ## Eureka Server
+  discovery:
+
+    build:
+      context: EurekaServer
+      dockerfile: Dockerfile
+
+
+    image: eurekaserver
+    container_name: eurekaserver-container
+    ports:
+      - "8761:8761"
+    expose:
+      - "8761"
+
+
+
+
+  ## Product-Service Docker Compose Config
+  gestion-classes:
+    build:
+      context: Gestion-Classes
+      dockerfile: Dockerfile
+    container_name: classe-container
+    image: classe-service
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "8081:8081"
+    expose:
+      - "8081"
+    depends_on:
+      - discovery
+      - gateway
+
+  gateway:
+    build:
+      context: Api-Gateway
+      dockerfile: Dockerfile
+    container_name: gateway-container
+    image: gateway-service
+    environment:
+     - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"
+    depends_on:
+      - discovery
+
+  gestion-communication:
+    build:
+      context: Gestion-Communication
+      dockerfile: Dockerfile
+    container_name: communication-container
+    image: communication-service
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "8082:8082"
+    expose:
+      - "8082"
+    depends_on:
+      - discovery
+      - gateway
+
+  gestion-coordination:
+    build:
+      context: Gestion-Coordination
+      dockerfile: Dockerfile
+    container_name: coordination-container
+    image: coordination-service
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "8083:8083"
+    expose:
+      - "8083"
+    depends_on:
+      - discovery
+      - gateway
+
+  gestion-cours:
+    build:
+      context: Gestion-Cours
+      dockerfile: Dockerfile
+    container_name: cours-container
+    image: cours-service
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "8084:8084"
+    expose:
+      - "8084"
+    depends_on:
+      - discovery
+      - gateway
+
+
+  gestion-evenements:
+    build:
+      context: Gestion-evenements
+      dockerfile: Dockerfile
+    container_name: evenements-container
+    image: evenements-service
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery:8761/eureka/
+    ports:
+      - "8085:8085"
+    expose:
+      - "8085"
+    depends_on:
+      - discovery
+      - gateway
